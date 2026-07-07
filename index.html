@@ -233,6 +233,35 @@ www-authenticate: Basic realm="infra-control"</div>
     </figure>
     <div class="tags"><span>Python</span><span>OAuth 위임 인증</span><span>REST API</span><span>Microsoft Entra</span></div>
   </div>
+
+  <div class="proj">
+    <div class="top"><h3>설치 없는 HWP/HWPX 웹 편집기</h3><span class="period">2026.04 ~ 2026.06</span></div>
+    <div class="role">Docker 기반 배포 · HWP 편집 UI 구성 · 기능 검증 전담 (공동 편집은 최종 미구현)</div>
+    <p><b class="k">문제</b>HWP 문서를 다루려면 보통 PC별 프로그램 설치가 필요했고, 운영 환경에서는 설치·업데이트·파일 호환성 관리가 부담이었습니다.</p>
+    <div class="flow">
+      <span class="n">Docker Compose 배포</span><span class="a">→</span>
+      <span class="n">브라우저 접속</span><span class="a">→</span>
+      <span class="n">HWP/HWPX 열기·편집</span><span class="a">→</span>
+      <span class="n">저장·내보내기</span><span class="a">→</span>
+      <span class="n">로컬 전용 no-share 모드</span>
+    </div>
+    <p><b class="k">결과</b>실시간 공동 편집은 끝내 완성하지 못했지만, Docker로 띄운 웹 환경에서 별도 설치 없이 한글 주요 편집 기능 대부분을 사용할 수 있게 구현했습니다. HWP/HWPX 문서 열기, 새 문서 작성, 서식·쪽·표·도구 메뉴, 저장·내보내기 흐름을 브라우저 UI로 묶고 local-only/no-share 계약으로 운영 위험을 줄였습니다.</p>
+    <div class="evi"><span class="p">$ rg -n "Docker Compose|HWP/HWPX" README.md</span>
+15:HWP/HWPX 로컬 열기와 export/download
+18:Docker Compose loopback 배포
+
+<span class="p">$ npm run verify:hancom-parity:live</span>
+commandCount=157 functionalCommands=157 hardStubs=0
+
+<span class="p">$ npm run ui:smoke</span>
+HWP export PASS · HWPX export PASS · sharingEnabled=false</div>
+    <div class="evi-cap">검증 요약 — Docker Compose 기반 웹 런타임, 한컴 명령 parity 157/157, HWP/HWPX export, local-only/no-share 모드 확인</div>
+    <figure class="shot">
+      <img src="img/rhwp-editor.png" alt="설치 없는 HWP/HWPX 웹 편집기 실화면 — 브라우저에서 새 문서와 한글식 리본 메뉴 표시" loading="lazy">
+      <figcaption>브라우저 기반 HWP 편집 화면 — 새 문서, 한글식 리본 메뉴, 글자·문단·쪽·표·도구 기능, 저장·HWP/HWPX 내보내기 UI를 설치 없이 사용 (테스트 문서 화면)</figcaption>
+    </figure>
+    <div class="tags"><span>Docker Compose</span><span>HWP/HWPX</span><span>JavaScript</span><span>Vite</span><span>Electron</span><span>UI smoke</span></div>
+  </div>
 </section>
 
 <section>
