@@ -178,7 +178,7 @@
       <span class="n">대시보드 · 리포트</span><span class="a">→</span>
       <span class="n">cron 일 단위 스캔</span>
     </div>
-    <p><b class="k">결과</b>민감정보 원문은 저장하지 않는 선마스킹 원칙으로 수작업 점검을 일 단위 자동 감사로 전환. 스모크 테스트와 마스킹 테스트로 동작을 검증했습니다.</p>
+    <p><b class="k">결과</b>민감정보 원문은 저장하지 않고 마스킹한 값만 다루는 방식으로 수작업 점검을 일 단위 자동 감사로 전환. 스모크 테스트와 마스킹 테스트로 동작을 검증했습니다.</p>
     <figure class="shot">
       <img src="img/secret-audit.png" alt="시크릿 스캔 대시보드 실화면 — 여러 저장소를 동기화하고 우선순위와 상태를 분류한 화면" loading="lazy">
       <figcaption>운영 중인 감사 대시보드 실화면 — 저장소 동기화·일 단위 스캔, 우선순위·상태 분류와 CSV 내보내기 (조직명·건수·검출 내역 마스킹)</figcaption>
@@ -248,7 +248,7 @@
       <img src="img/설치없는-HWP-웹편집기-마스킹.png" alt="설치 없는 HWP/HWPX 웹 편집기 실화면 — 브라우저에서 새 문서와 한글식 리본 메뉴 표시" loading="lazy">
       <figcaption>브라우저 기반 HWP 편집 화면 — 새 문서, 한글식 리본 메뉴, 글자·문단·쪽·표·도구 기능, 저장·HWP/HWPX 내보내기 UI를 설치 없이 사용 (테스트 문서 화면)</figcaption>
     </figure>
-    <div class="tags"><span>Docker Compose</span><span>HWP/HWPX</span><span>JavaScript</span><span>Vite</span><span>Electron</span><span>화면 스모크</span></div>
+    <div class="tags"><span>Docker Compose</span><span>HWP/HWPX</span><span>JavaScript</span><span>Vite</span><span>Electron</span><span>스모크 테스트</span></div>
   </div>
 </section>
 
@@ -268,7 +268,7 @@
     <div class="g"><b>Linux 운영</b><p>systemd · cron · 로그 분석(journalctl) · 프로세스/자원 진단 · 권한 관리 · GPU 서버 포함 온프레미스 운영</p></div>
     <div class="g"><b>컨테이너 · 배포</b><p>Docker · Docker Compose(재시작 정책, 볼륨, 환경변수, 서비스 노출) · 스모크/부하 테스트 기반 검증</p></div>
     <div class="g"><b>자동화 · 스크립팅</b><p>Python · Shell · Ansible · cron 배치 · REST API 설계</p></div>
-    <div class="g"><b>Git · 보안</b><p>GitHub 조직·권한 운영 · 브랜치/PR 워크플로 · gitleaks 시크릿 감사 · 선마스킹 · 무변경 미리보기 설계</p></div>
+    <div class="g"><b>Git · 보안</b><p>GitHub 조직·권한 운영 · 브랜치/PR 워크플로 · gitleaks 시크릿 감사 · 원문 미저장 · 무변경 미리보기 설계</p></div>
   </div>
 </section>
 
