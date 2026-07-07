@@ -144,7 +144,7 @@
 
   <div class="proj">
     <div class="top"><h3>인프라 자산·운영 통합 관리 시스템</h3><span class="period">2025.12 ~ 2026.02 · 운영 지속</span></div>
-    <div class="role">기획 · 백엔드 · UI · Linux 서버 배포/운영 전담</div>
+    <div class="role">기획 · 백엔드 · UI · Linux 서버 배포/운영 전담 · <a href="https://github.com/ZC021/infra-asset-manager" target="_blank" rel="noopener">GitHub ↗</a></div>
     <p><b class="k">문제</b>서버·VM·정보자산·담당자·승인 이력이 자산 관리 도구와 여러 Excel 대장에 흩어져 있어, 현황 파악마다 파일을 수작업으로 대조해야 했습니다.</p>
     <div class="flow">
       <span class="n">자산도구 스냅샷 · Excel 대장</span><span class="a">→</span>
@@ -171,7 +171,7 @@ www-authenticate: Basic realm="infra-control"</div>
 
   <div class="proj">
     <div class="top"><h3>소스 저장소 보안 점검 자동화</h3><span class="period">2026.06 ~ 운영 지속</span></div>
-    <div class="role">설계 · 개발 · 운영 전담</div>
+    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/repo-secret-audit" target="_blank" rel="noopener">GitHub ↗</a></div>
     <p><b class="k">문제</b>저장소 수가 많아 시크릿(자격증명) 노출 여부를 수작업으로 점검하는 것이 불가능했습니다.</p>
     <div class="flow">
       <span class="n">GitHub CLI 저장소 수집</span><span class="a">→</span>
@@ -190,7 +190,7 @@ www-authenticate: Basic realm="infra-control"</div>
 
   <div class="proj">
     <div class="top"><h3>서버 상태 모니터링 자동화</h3><span class="period">2026.06 ~ 운영 지속</span></div>
-    <div class="role">설계 · 개발 · 운영 전담</div>
+    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/dstate-monitor" target="_blank" rel="noopener">GitHub ↗</a></div>
     <p><b class="k">문제</b>NFS I/O 병목으로 중단 불가(D state) 상태에 빠진 프로세스가 쌓이면 서버가 통째로 멈추는 일이 있어, 멈추기 전에 선제 조치할 수단이 필요했습니다.</p>
     <div class="flow">
       <span class="n">Ansible 주기 수집</span><span class="a">→</span>
@@ -208,7 +208,7 @@ www-authenticate: Basic realm="infra-control"</div>
 
   <div class="proj">
     <div class="top"><h3>계정·그룹 권한 승인 자동화 웹앱</h3><span class="period">2026.06</span></div>
-    <div class="role">설계 · 개발 전담</div>
+    <div class="role">설계 · 개발 전담 · <a href="https://github.com/ZC021/group-approval-webapp" target="_blank" rel="noopener">GitHub ↗</a></div>
     <p><b class="k">문제</b>SaaS 그룹 사용 승인 요청을 수작업으로 처리하며 누락·실수 위험이 있었습니다.</p>
     <div class="flow">
       <span class="n">승인 요청 접수</span><span class="a">→</span>
@@ -231,6 +231,16 @@ www-authenticate: Basic realm="infra-control"</div>
       <figcaption>SSO 로그인 후 운영 화면 실측 — 그룹웨어 승인 문서를 900초 주기로 동기화해 목록화하고, 운영자가 사용자 확인·반려·감사 로그로 처리. 적용 모드 DRY-RUN(무변경) 기본 (문서·신청자·계정 블러)</figcaption>
     </figure>
     <div class="tags"><span>Python</span><span>OAuth 위임 인증</span><span>REST API</span><span>Microsoft Entra</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>인프라 도입 참여 (보조)</h2>
+  <p>사수 주도의 도입 프로젝트에 보조로 참여한 경험입니다. 역할 범위를 구분해 기재합니다.</p>
+  <div class="skills">
+    <div class="g"><b>Proxmox 가상화 도입</b><p>물리 서버 노후화와 가상화 라이선스 비용 문제로 KVM 기반 Proxmox를 도입. 서버 초기 설정에 참여하고 VM 생성 표준·스토리지 구성을 정리한 초기 설정·사용 가이드를 직접 문서화했습니다.</p></div>
+    <div class="g"><b>Veeam 백업 체계 구축</b><p>서버 이미지 백업 체계 구축을 보조. 백업 대상·주기 정리와 복구 절차가 정해지는 과정을 가까이에서 익혔습니다.</p></div>
+    <div class="g"><b>접근통제(PAM) 도입 검토</b><p>계정 접근 기록·세션 감사·권한 최소화 기준을 보안 규정 항목과 대조하는 도입 검토를 보조했습니다.</p></div>
   </div>
 </section>
 
