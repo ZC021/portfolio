@@ -127,7 +127,7 @@
   </p>
   <div class="contact">
     <a href="mailto:minoooo1494@naver.com">minoooo1494@naver.com</a>
-    <a href="https://github.com/ZC021/portfolio/tree/main" target="_blank" rel="noopener">github.com/ZC021/portfolio</a>
+    <a href="https://github.com/ZC021/portfolio/tree/main" target="_blank" rel="noopener">포트폴리오 저장소</a>
   </div>
 </header>
 
@@ -141,126 +141,114 @@
 </section>
 
 <section>
-  <h2>프로젝트 (전부 현 직장 사내 실무)</h2>
+  <h2>실무 프로젝트</h2>
 
   <div class="proj">
     <div class="top"><h3>인프라 자산·운영 통합 관리 시스템</h3><span class="period">2025.12 ~ 2026.02 · 운영 지속</span></div>
-    <div class="role">기획 · 백엔드 · UI · Linux 서버 배포/운영 전담 · <a href="https://github.com/ZC021/infra-asset-manager" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="role">기획 · 백엔드 · 화면 구성 · Linux 서버 배포/운영 전담 · <a href="https://github.com/ZC021/infra-asset-manager" target="_blank" rel="noopener">GitHub 저장소</a></div>
     <p><b class="k">문제</b>서버·VM·정보자산·담당자·승인 이력이 자산 관리 도구와 여러 Excel 대장에 흩어져 있어, 현황 파악마다 파일을 수작업으로 대조해야 했습니다.</p>
     <div class="flow">
       <span class="n">자산도구 스냅샷 · Excel 대장</span><span class="a">→</span>
       <span class="n">SQLite 정규화</span><span class="a">→</span>
-      <span class="n">REST API · 웹 UI</span><span class="a">→</span>
+      <span class="n">REST API · 웹 화면</span><span class="a">→</span>
       <span class="n">cron 주기 갱신 + 로그</span><span class="a">→</span>
       <span class="n">systemd 서비스 운영</span>
     </div>
-    <p><b class="k">결과</b>수작업 대조를 웹 한 화면 조회로 전환하고 cron 자동 동기화로 최신 상태를 유지. 데이터 수집→정규화→API→UI→배치 갱신→로그까지 Linux 운영 서비스의 전체 흐름을 직접 구성했습니다.</p>
-    <div class="evi"><span class="p">$ ps -o pid=,etime=,comm= -p $(pgrep -f infra)</span>
-1764432 11-03:28:57 python3
-
-<span class="p">$ curl -s -o /dev/null -D - http://localhost:8000/</span>
-HTTP/1.0 401 Unauthorized
-Server: infra-control/0.2 Python/3.10.12
-www-authenticate: Basic realm="infra-control"</div>
-    <div class="evi-cap">운영 서버 실측 — 11일째 무중단 가동, 전 구간 Basic 인증 적용</div>
+    <p><b class="k">결과</b>수작업 대조를 웹 한 화면 조회로 전환하고 cron 자동 동기화로 최신 상태를 유지. 데이터 수집→정규화→API→화면→배치 갱신→로그까지 Linux 운영 서비스의 전체 흐름을 직접 구성했습니다.</p>
+    <div class="evi"><span class="p">운영 검증 요약</span>
+서비스 상태: 정상 실행
+접근 제어: 인증 없는 요청 차단
+갱신 방식: 배치 동기화와 로그 기록 확인</div>
+    <div class="evi-cap">운영 검증 — 정기 동기화, 접근 제어, 서비스 상태를 식별값 없이 요약</div>
     <figure class="shot">
-      <img src="img/asset-dashboard.png" alt="자산 관리 대시보드 실화면 — 자산 837대, 변경 이력 89,073건 집계" loading="lazy">
-      <figcaption>운영 중인 대시보드 실화면 — 자산 837대 · 변경 이력 89,073건 · SW 설치 8,851건 집계 (사명·개인정보 마스킹)</figcaption>
+      <img src="img/asset-dashboard.png" alt="자산 관리 대시보드 실화면 — 여러 자산과 변경 이력을 집계한 화면" loading="lazy">
+      <figcaption>운영 중인 대시보드 실화면 — 자산·변경 이력·소프트웨어 설치 현황을 통합 조회 (사명·개인정보·내부 수량 마스킹)</figcaption>
     </figure>
     <div class="tags"><span>Python</span><span>SQLite</span><span>Linux</span><span>systemd</span><span>cron</span><span>REST API</span><span>Git</span></div>
   </div>
 
   <div class="proj">
     <div class="top"><h3>소스 저장소 보안 점검 자동화</h3><span class="period">2026.06 ~ 운영 지속</span></div>
-    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/repo-secret-audit" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/repo-secret-audit" target="_blank" rel="noopener">GitHub 저장소</a></div>
     <p><b class="k">문제</b>저장소 수가 많아 시크릿(자격증명) 노출 여부를 수작업으로 점검하는 것이 불가능했습니다.</p>
     <div class="flow">
       <span class="n">GitHub CLI 저장소 수집</span><span class="a">→</span>
       <span class="n">gitleaks 스캔</span><span class="a">→</span>
-      <span class="n">redaction 후 SQLite 저장</span><span class="a">→</span>
+      <span class="n">민감정보 마스킹 후 SQLite 저장</span><span class="a">→</span>
       <span class="n">대시보드 · 리포트</span><span class="a">→</span>
-      <span class="n">cron daily scan</span>
+      <span class="n">cron 일 단위 스캔</span>
     </div>
-    <p><b class="k">결과</b>민감정보 원문은 저장하지 않는 redaction-first 원칙으로 수작업 점검을 일 단위 자동 감사로 전환. smoke·redaction 테스트로 동작을 검증했습니다.</p>
+    <p><b class="k">결과</b>민감정보 원문은 저장하지 않는 선마스킹 원칙으로 수작업 점검을 일 단위 자동 감사로 전환. 스모크 테스트와 마스킹 테스트로 동작을 검증했습니다.</p>
     <figure class="shot">
-      <img src="img/secret-audit.png" alt="시크릿 스캔 대시보드 실화면 — 저장소 685개 동기화, 우선순위·상태 triage UI" loading="lazy">
-      <figcaption>운영 중인 감사 대시보드 실화면 — 저장소 685개 동기화·일 단위 스캔, 우선순위(P0~P3)·상태(FP/stale) triage와 CSV 내보내기 (조직명·건수·검출 내역 마스킹)</figcaption>
+      <img src="img/secret-audit.png" alt="시크릿 스캔 대시보드 실화면 — 여러 저장소를 동기화하고 우선순위와 상태를 분류한 화면" loading="lazy">
+      <figcaption>운영 중인 감사 대시보드 실화면 — 저장소 동기화·일 단위 스캔, 우선순위·상태 분류와 CSV 내보내기 (조직명·건수·검출 내역 마스킹)</figcaption>
     </figure>
     <div class="tags"><span>Python</span><span>gitleaks</span><span>GitHub CLI</span><span>SQLite</span><span>cron</span><span>보안 자동화</span></div>
   </div>
 
   <div class="proj">
     <div class="top"><h3>서버 상태 모니터링 자동화</h3><span class="period">2026.06 ~ 운영 지속</span></div>
-    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/dstate-monitor" target="_blank" rel="noopener">GitHub ↗</a></div>
-    <p><b class="k">문제</b>NFS I/O 병목으로 중단 불가(D state) 상태에 빠진 프로세스가 쌓이면 서버가 통째로 멈추는 일이 있어, 멈추기 전에 선제 조치할 수단이 필요했습니다.</p>
+    <div class="role">설계 · 개발 · 운영 전담 · <a href="https://github.com/ZC021/dstate-monitor" target="_blank" rel="noopener">GitHub 저장소</a></div>
+    <p><b class="k">문제</b>NFS I/O 병목으로 중단 불가(D 상태) 상태에 빠진 프로세스가 쌓이면 서버가 통째로 멈추는 일이 있어, 멈추기 전에 선제 조치할 수단이 필요했습니다.</p>
     <div class="flow">
       <span class="n">Ansible 주기 수집</span><span class="a">→</span>
-      <span class="n">D state 프로세스 탐지</span><span class="a">→</span>
+      <span class="n">D 상태 프로세스 탐지</span><span class="a">→</span>
       <span class="n">cron 동기화</span><span class="a">→</span>
-      <span class="n">웹 대시보드 (Basic 인증)</span>
+      <span class="n">인증 보호 웹 대시보드</span>
     </div>
-    <p><b class="k">결과</b>여러 Linux 서버의 프로세스 상태를 주기 수집해 대시보드로 게시, D state 누적을 조기에 확인하고 서버가 멈추기 전에 대응할 수 있게 했습니다.</p>
+    <p><b class="k">결과</b>여러 Linux 서버의 프로세스 상태를 주기 수집해 대시보드로 게시, D 상태 누적을 조기에 확인하고 서버가 멈추기 전에 대응할 수 있게 했습니다.</p>
     <figure class="shot">
-      <img src="img/dstate-monitor.png" alt="D state 모니터링 대시보드 실화면 — 호스트 33대 스캔, D 프로세스 원인 분포" loading="lazy">
-      <figcaption>운영 중인 모니터링 대시보드 실화면 — 호스트 33대 30분 주기 스캔, wchan 기반 원인 분포(VFS·디스크·NFS/RPC·lock) 집계 (호스트명·계정 블러)</figcaption>
+      <img src="img/dstate-monitor.png" alt="D 상태 모니터링 대시보드 실화면 — 여러 호스트를 스캔하고 대기 원인을 분류한 화면" loading="lazy">
+      <figcaption>운영 중인 모니터링 대시보드 실화면 — 여러 호스트의 프로세스 상태를 주기적으로 스캔하고 커널 대기 지점 기준으로 원인을 분류 (호스트명·계정·내부 수량 블러)</figcaption>
     </figure>
     <div class="tags"><span>Ansible</span><span>cron</span><span>nginx</span><span>Shell</span></div>
   </div>
 
   <div class="proj">
     <div class="top"><h3>계정·그룹 권한 승인 자동화 웹앱</h3><span class="period">2026.06</span></div>
-    <div class="role">설계 · 개발 전담 (사내 배포 — 비공개)</div>
+    <div class="role">설계 · 개발 전담 (사내 배포 · 공개 저장소 없음)</div>
     <p><b class="k">문제</b>SaaS 그룹 사용 승인 요청을 수작업으로 처리하며 누락·실수 위험이 있었습니다.</p>
     <div class="flow">
       <span class="n">승인 요청 접수</span><span class="a">→</span>
       <span class="n">운영자 확인</span><span class="a">→</span>
-      <span class="n">dry-run 미리보기</span><span class="a">→</span>
+      <span class="n">무변경 미리보기</span><span class="a">→</span>
       <span class="n">ID 디렉터리 그룹 동기화</span>
     </div>
-    <p><b class="k">결과</b>dry-run을 기본 동작으로 설계해 실수를 구조적으로 막고, 테스트 27건으로 동작을 검증했습니다.</p>
-    <div class="evi"><span class="p">$ grep -rh "def test_" . | wc -l</span>
-27
-
-<span class="p">$ ps -o pid=,etime=,comm= -p $(pgrep -f approval)</span>
-1126  5-04:47:11 python3
-
-<span class="p">$ curl -s -o /dev/null -w '%{http_code} → %{redirect_url}' http://localhost:8082/</span>
-302 → https://login.microsoftonline.com/••••/oauth2/v2.0/authorize?client_id=••••&scope=openid+profile+…</div>
-    <div class="evi-cap">운영 서버 실측 — 테스트 27건, 연속 가동 중, 전 경로가 Entra SSO(OIDC) 뒤에 보호되어 내부 화면은 로그인 없이 노출되지 않음</div>
+    <p><b class="k">결과</b>무변경 미리보기를 기본 동작으로 설계해 실수를 구조적으로 막고, 자동화 테스트로 동작을 검증했습니다.</p>
+    <div class="evi"><span class="p">운영 검증 요약</span>
+테스트 상태: 승인·반려·감사 로그 흐름 통과
+접근 제어: SSO 인증 전 내부 화면 비노출
+적용 방식: 운영자 확인 후 동기화</div>
+    <div class="evi-cap">운영 검증 — 인증 보호, 무변경 미리보기, 감사 로그 흐름을 식별값 없이 요약</div>
     <figure class="shot">
-      <img src="img/approval-app.png" alt="SaaS 그룹 승인 웹앱 실화면 — DRY-RUN 모드, 승인 요청 목록과 운영자 처리 버튼" loading="lazy">
-      <figcaption>SSO 로그인 후 운영 화면 실측 — 그룹웨어 승인 문서를 900초 주기로 동기화해 목록화하고, 운영자가 사용자 확인·반려·감사 로그로 처리. 적용 모드 DRY-RUN(무변경) 기본 (문서·신청자·계정 블러)</figcaption>
+      <img src="img/approval-app.png" alt="SaaS 그룹 승인 웹앱 실화면 — 무변경 모드, 승인 요청 목록과 운영자 처리 버튼" loading="lazy">
+      <figcaption>SSO 로그인 후 운영 화면 실측 — 그룹웨어 승인 문서를 주기적으로 동기화해 목록화하고, 운영자가 사용자 확인·반려·감사 로그로 처리. 무변경 모드를 기본값으로 사용 (문서·신청자·계정 블러)</figcaption>
     </figure>
     <div class="tags"><span>Python</span><span>OAuth 위임 인증</span><span>REST API</span><span>Microsoft Entra</span></div>
   </div>
 
   <div class="proj">
     <div class="top"><h3>설치 없는 HWP/HWPX 웹 편집기</h3><span class="period">2026.04 ~ 2026.06</span></div>
-    <div class="role">Docker 기반 배포 · HWP 편집 UI 구성 · 기능 검증 전담 (공동 편집은 최종 미구현)</div>
+    <div class="role">Docker 기반 배포 · HWP 편집 화면 구성 · 기능 검증 전담 (공동 편집은 최종 미구현 · 공개 저장소 없음)</div>
     <p><b class="k">문제</b>HWP 문서를 다루려면 보통 PC별 프로그램 설치가 필요했고, 운영 환경에서는 설치·업데이트·파일 호환성 관리가 부담이었습니다.</p>
     <div class="flow">
       <span class="n">Docker Compose 배포</span><span class="a">→</span>
       <span class="n">브라우저 접속</span><span class="a">→</span>
       <span class="n">HWP/HWPX 열기·편집</span><span class="a">→</span>
       <span class="n">저장·내보내기</span><span class="a">→</span>
-      <span class="n">로컬 전용 no-share 모드</span>
+      <span class="n">로컬 전용·공유 비활성 모드</span>
     </div>
-    <p><b class="k">결과</b>실시간 공동 편집은 끝내 완성하지 못했지만, Docker로 띄운 웹 환경에서 별도 설치 없이 한글 주요 편집 기능 대부분을 사용할 수 있게 구현했습니다. HWP/HWPX 문서 열기, 새 문서 작성, 서식·쪽·표·도구 메뉴, 저장·내보내기 흐름을 브라우저 UI로 묶고 local-only/no-share 계약으로 운영 위험을 줄였습니다.</p>
-    <div class="evi"><span class="p">$ rg -n "Docker Compose|HWP/HWPX" README.md</span>
-15:HWP/HWPX 로컬 열기와 export/download
-18:Docker Compose loopback 배포
-
-<span class="p">$ npm run verify:hancom-parity:live</span>
-commandCount=157 functionalCommands=157 hardStubs=0
-
-<span class="p">$ npm run ui:smoke</span>
-HWP export PASS · HWPX export PASS · sharingEnabled=false</div>
-    <div class="evi-cap">검증 요약 — Docker Compose 기반 웹 런타임, 한컴 명령 parity 157/157, HWP/HWPX export, local-only/no-share 모드 확인</div>
+    <p><b class="k">결과</b>실시간 공동 편집은 끝내 완성하지 못했지만, Docker로 띄운 웹 환경에서 별도 설치 없이 한글 주요 편집 기능 대부분을 사용할 수 있게 구현했습니다. HWP/HWPX 문서 열기, 새 문서 작성, 서식·쪽·표·도구 메뉴, 저장·내보내기 흐름을 브라우저 화면으로 묶고 로컬 전용·공유 비활성 계약으로 운영 위험을 줄였습니다.</p>
+    <div class="evi"><span class="p">검증 요약</span>
+문서 열기: HWP/HWPX 로컬 열기 확인
+내보내기: HWP/HWPX 저장 흐름 통과
+공유 설정: 외부 공유 기능 비활성 확인</div>
+    <div class="evi-cap">검증 요약 — Docker Compose 기반 웹 런타임, 한컴 주요 명령, HWP/HWPX 내보내기, 로컬 전용 모드 확인</div>
     <figure class="shot">
       <img src="img/설치없는-HWP-웹편집기-마스킹.png" alt="설치 없는 HWP/HWPX 웹 편집기 실화면 — 브라우저에서 새 문서와 한글식 리본 메뉴 표시" loading="lazy">
       <figcaption>브라우저 기반 HWP 편집 화면 — 새 문서, 한글식 리본 메뉴, 글자·문단·쪽·표·도구 기능, 저장·HWP/HWPX 내보내기 UI를 설치 없이 사용 (테스트 문서 화면)</figcaption>
     </figure>
-    <div class="tags"><span>Docker Compose</span><span>HWP/HWPX</span><span>JavaScript</span><span>Vite</span><span>Electron</span><span>UI smoke</span></div>
+    <div class="tags"><span>Docker Compose</span><span>HWP/HWPX</span><span>JavaScript</span><span>Vite</span><span>Electron</span><span>화면 스모크</span></div>
   </div>
 </section>
 
@@ -278,9 +266,9 @@ HWP export PASS · HWPX export PASS · sharingEnabled=false</div>
   <h2>기술 스택</h2>
   <div class="skills">
     <div class="g"><b>Linux 운영</b><p>systemd · cron · 로그 분석(journalctl) · 프로세스/자원 진단 · 권한 관리 · GPU 서버 포함 온프레미스 운영</p></div>
-    <div class="g"><b>컨테이너 · 배포</b><p>Docker · Docker Compose(restart policy, volume, 환경변수, 서비스 노출) · smoke/stress 테스트 기반 검증</p></div>
+    <div class="g"><b>컨테이너 · 배포</b><p>Docker · Docker Compose(재시작 정책, 볼륨, 환경변수, 서비스 노출) · 스모크/부하 테스트 기반 검증</p></div>
     <div class="g"><b>자동화 · 스크립팅</b><p>Python · Shell · Ansible · cron 배치 · REST API 설계</p></div>
-    <div class="g"><b>Git · 보안</b><p>GitHub 조직·권한 운영 · 브랜치/PR 워크플로 · gitleaks 시크릿 감사 · redaction-first · dry-run 설계</p></div>
+    <div class="g"><b>Git · 보안</b><p>GitHub 조직·권한 운영 · 브랜치/PR 워크플로 · gitleaks 시크릿 감사 · 선마스킹 · 무변경 미리보기 설계</p></div>
   </div>
 </section>
 
@@ -299,7 +287,7 @@ HWP export PASS · HWPX export PASS · sharingEnabled=false</div>
     <div class="t">
       <div class="when">2025.09 ~ 현재</div>
       <div class="what">AI 의료기업 — 서버·GitHub·개발도구 운영</div>
-      <p>GPU 서버 포함 온프레미스 서버 운영, GitHub 조직 관리, 개발도구 설정·권한 관리. 위 프로젝트 전부 재직 중 수행.</p>
+      <p>GPU 서버 포함 온프레미스 서버 운영, GitHub 조직 관리, 개발도구 설정·권한 관리. 위 실무 프로젝트를 수행했습니다.</p>
     </div>
     <div class="t">
       <div class="when">2025.02 ~ 2025.09</div>
@@ -314,8 +302,8 @@ HWP export PASS · HWPX export PASS · sharingEnabled=false</div>
 </section>
 
 <footer>
-  사내 프로젝트는 보안상 회사명·내부 데이터·코드 없이 구조와 역할만 기술했습니다.
-  터미널 출력과 화면 캡처는 실제 운영 서버에서 채집한 뒤 회사명·호스트명·개인정보·내부 주소를 마스킹한 것입니다.
+  공개 저장소가 없는 프로젝트는 보안상 회사명·내부 데이터·코드 없이 구조와 역할만 기술했습니다.
+  터미널 출력과 화면 캡처 설명은 회사명·호스트명·개인정보·내부 주소·세부 수량을 마스킹하거나 요약한 것입니다.
   세부 구현과 운영 경험은 면접에서 상세히 말씀드릴 수 있습니다.
 </footer>
 
